@@ -22,7 +22,7 @@ public class UserService {
 		userDao.delete(user);
 	}
 	
-	public void update(User userNew, User userOld) {
+	public void update(User userOld, User userNew) {
 		userDao.update(userOld, userNew);
 	}
 

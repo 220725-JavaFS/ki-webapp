@@ -1,8 +1,7 @@
 package com.revature.controllers;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,21 +12,27 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
-public class UserServlet extends HttpServlet {
+public class InsertServlet extends HttpServlet {
 	
 	private ObjectMapper om = new ObjectMapper();
 	private UserService us = new UserService();
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse res)
+	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 					throws IOException, ServletException {
 		
-		List<User> users = us.selectAll();
-		String json = om.writeValueAsString(users);
+		StringBuilder jb = new StringBuilder();
+		BufferedReader reader = req.getReader();
+		String line = reader.readLine();
 		
-		res.setContentType("application/json");
-		PrintWriter pw = res.getWriter();
-		pw.println(json);
-		res.setStatus(200);
+		while (line != null ) {
+			jb.append(line);
+			line = reader.readLine();
+		}
+		
+		String json = new String(jb);
+		User user = om.readValue(json, User.class);
+		us.insert(user);
+		res.setStatus(201);
 	}
+
 }

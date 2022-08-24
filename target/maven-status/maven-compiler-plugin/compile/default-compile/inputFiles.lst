@@ -1,0 +1,8 @@
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/controllers/UpdateServlet.java
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/controllers/InsertServlet.java
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/services/UserService.java
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/controllers/DeleteServlet.java
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/daos/UserDaoImpl.java
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/models/User.java
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/daos/UserDAO.java
+/home/kirwi/Revature/ki-webapp/src/main/java/com/revature/controllers/UserServlet.java
