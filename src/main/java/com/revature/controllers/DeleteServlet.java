@@ -17,7 +17,7 @@ public class DeleteServlet extends HttpServlet {
 	ObjectMapper om = new ObjectMapper();
 	UserService us = new UserService();
 	
-	protected void doPost(HttpServletRequest req, HttpServletResponse res)
+	protected void doDelete(HttpServletRequest req, HttpServletResponse res)
 					throws IOException, ServletException {
 		
 		StringBuilder jb = new StringBuilder();
@@ -32,7 +32,7 @@ public class DeleteServlet extends HttpServlet {
 		String userJson = new String(jb);
 		User user = om.readValue(userJson, User.class);
 		us.delete(user);
-		res.setStatus(201);
+		res.setStatus(200);
 	}
 
 }

@@ -19,7 +19,7 @@ public class UpdateServlet extends HttpServlet {
 	private ObjectMapper om = new ObjectMapper();
 	private UserService us = new UserService();
 	
-	protected void doPost(HttpServletRequest req, HttpServletResponse res)
+	protected void doPut(HttpServletRequest req, HttpServletResponse res)
 					throws IOException, ServletException {
 		
 		StringBuilder jb = new StringBuilder();
@@ -34,6 +34,6 @@ public class UpdateServlet extends HttpServlet {
 		String json = new String(jb);
 		List<User> swap = om.readValue(json, new TypeReference<List<User>>() {});
 		us.update(swap.get(0), swap.get(1));
-		res.setStatus(201);
+		res.setStatus(200);
 	}
 }

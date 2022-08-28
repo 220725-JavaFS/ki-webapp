@@ -4,10 +4,17 @@ import java.util.List;
 
 import com.revature.models.User;
 import com.revature.orm.ObjectMapper;
+import com.revature.orm.utils.Conf;
 
 public class UserDaoImpl implements UserDAO {
 	
-	ObjectMapper om = new ObjectMapper();
+	private Conf config = new Conf(
+			System.getenv("POSTGRES_URL"),
+			System.getenv("POSTGRES_UNAME"),
+			System.getenv("POSTGRES_PASS")
+			);
+	
+	private ObjectMapper om = new ObjectMapper(config);
 
 	@Override
 	public List<User> selectAll() {
