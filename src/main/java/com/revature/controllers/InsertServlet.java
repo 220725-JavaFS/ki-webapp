@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.daos.UserDaoImpl;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
 public class InsertServlet extends HttpServlet {
 	
 	private ObjectMapper om = new ObjectMapper();
-	private UserService us = new UserService();
+	private UserService us = new UserService(new UserDaoImpl());
 	
 	protected void doPost(HttpServletRequest req, HttpServletResponse res)
 					throws IOException, ServletException {

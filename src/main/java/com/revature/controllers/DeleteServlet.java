@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.daos.UserDaoImpl;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
 public class DeleteServlet extends HttpServlet {
 	
 	ObjectMapper om = new ObjectMapper();
-	UserService us = new UserService();
+	UserService us = new UserService(new UserDaoImpl());
 	
 	protected void doDelete(HttpServletRequest req, HttpServletResponse res)
 					throws IOException, ServletException {

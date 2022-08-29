@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.daos.UserDaoImpl;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
 public class UserServlet extends HttpServlet {
 	
 	private ObjectMapper om = new ObjectMapper();
-	private UserService us = new UserService();
+	private UserService us = new UserService(new UserDaoImpl());
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)

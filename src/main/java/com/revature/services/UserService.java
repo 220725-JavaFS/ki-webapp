@@ -8,7 +8,7 @@ import com.revature.models.User;
 
 public class UserService {
 	
-	UserDAO userDao = new UserDaoImpl();
+	private UserDAO userDao;
 	
 	public List<User> selectAll() {
 		return userDao.selectAll();
@@ -24,6 +24,11 @@ public class UserService {
 	
 	public void update(User userOld, User userNew) {
 		userDao.update(userOld, userNew);
+	}
+	
+	public UserService(UserDAO userDao) {
+		super();
+		this.userDao = userDao;
 	}
 
 }
